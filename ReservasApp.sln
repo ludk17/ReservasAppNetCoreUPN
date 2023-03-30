@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservasApp", "ReservasApp\ReservasApp.csproj", "{C9B9BBFB-C8BD-4689-B052-206A745999F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReservasApp.Tests", "ReservasApp.Tests\ReservasApp.Tests.csproj", "{91F13E2E-182D-47CE-89F2-1E1E9132BE0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{C9B9BBFB-C8BD-4689-B052-206A745999F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9B9BBFB-C8BD-4689-B052-206A745999F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9B9BBFB-C8BD-4689-B052-206A745999F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91F13E2E-182D-47CE-89F2-1E1E9132BE0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F13E2E-182D-47CE-89F2-1E1E9132BE0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91F13E2E-182D-47CE-89F2-1E1E9132BE0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F13E2E-182D-47CE-89F2-1E1E9132BE0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
