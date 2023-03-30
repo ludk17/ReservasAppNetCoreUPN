@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using ReservasApp;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add Database Connection
+builder.Services.AddDbContext<ReservaContext>(o => o.UseSqlite("Filename=reservas.db"));
 
 var app = builder.Build();
 
