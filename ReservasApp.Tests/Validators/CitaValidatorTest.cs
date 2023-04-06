@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Moq;
+using Moq.EntityFrameworkCore;
 using NUnit.Framework;
 using ReservasApp.Models;
 using ReservasApp.Validators;
@@ -24,12 +27,15 @@ public class CitaValidatorTest
             new Cita {FechaInicio = new DateTime(2023,03,30,9,0,0), FechaFin = new DateTime(2023,03,30,9,30,0)},
         };
 
+        var rcMock = new Mock<ReservaContext>(new DbContextOptions<ReservaContext>());
+        rcMock.Setup(o => o.Citas).ReturnsDbSet(citas);
+
         var nuevaCita = new Cita {
             FechaInicio = new DateTime(2023, 03, 30, 8, 10, 0), 
             FechaFin = new DateTime(2023, 03, 30, 8, 40, 0)
         };
         
-        var result = validator.VerificaSiLaCitaEsValidaEnFechas(citas, nuevaCita);
+        var result = validator.VerificaSiLaCitaEsValidaEnFechas(rcMock.Object, nuevaCita);
         
         Assert.IsFalse(result);
     }
@@ -51,12 +57,16 @@ public class CitaValidatorTest
             new Cita {FechaInicio = new DateTime(2023,03,30,9,0,0), FechaFin = new DateTime(2023,03,30,9,30,0)},
         };
 
+        var rcMock = new Mock<ReservaContext>(new DbContextOptions<ReservaContext>());
+        rcMock.Setup(o => o.Citas).ReturnsDbSet(citas);
+
+        
         var nuevaCita = new Cita {
             FechaInicio = new DateTime(2023, 03, 30, 7, 00, 0), 
             FechaFin = new DateTime(2023, 03, 30, 7, 30, 0)
         };
         
-        var result = validator.VerificaSiLaCitaEsValidaEnFechas(citas, nuevaCita);
+        var result = validator.VerificaSiLaCitaEsValidaEnFechas(rcMock.Object, nuevaCita);
         
         Assert.IsTrue(result);
     }
@@ -77,13 +87,17 @@ public class CitaValidatorTest
             new Cita {FechaInicio = new DateTime(2023,03,30,8,0,0), FechaFin = new DateTime(2023,03,30,8,30,0)},
             new Cita {FechaInicio = new DateTime(2023,03,30,9,0,0), FechaFin = new DateTime(2023,03,30,9,30,0)},
         };
+        
+        var rcMock = new Mock<ReservaContext>(new DbContextOptions<ReservaContext>());
+        rcMock.Setup(o => o.Citas).ReturnsDbSet(citas);
+
 
         var nuevaCita = new Cita {
             FechaInicio = new DateTime(2023, 03, 30, 10, 00, 0), 
             FechaFin = new DateTime(2023, 03, 30, 10, 30, 0)
         };
         
-        var result = validator.VerificaSiLaCitaEsValidaEnFechas(citas, nuevaCita);
+        var result = validator.VerificaSiLaCitaEsValidaEnFechas(rcMock.Object, nuevaCita);
         
         Assert.IsTrue(result);
     }
@@ -104,12 +118,15 @@ public class CitaValidatorTest
             new Cita {FechaInicio = new DateTime(2023,03,30,9,0,0), FechaFin = new DateTime(2023,03,30,9,30,0)},
         };
 
+        var rcMock = new Mock<ReservaContext>(new DbContextOptions<ReservaContext>());
+        rcMock.Setup(o => o.Citas).ReturnsDbSet(citas);
+
         var nuevaCita = new Cita {
             FechaInicio = new DateTime(2023, 03, 30, 8, 30, 0), 
             FechaFin = new DateTime(2023, 03, 30, 09, 00, 0)
         };
         
-        var result = validator.VerificaSiLaCitaEsValidaEnFechas(citas, nuevaCita);
+        var result = validator.VerificaSiLaCitaEsValidaEnFechas(rcMock.Object, nuevaCita);
         
         Assert.IsTrue(result);
     }
@@ -124,18 +141,23 @@ public class CitaValidatorTest
         // Nuevo: 
         // Cita: 2023-03-30 08:30 - 09:00
         // Espero que no registre retorne que no es una fecha validad
-
+        
+       
+        
         var citas = new List<Cita>{
             new Cita {FechaInicio = new DateTime(2023,03,30,8,0,0), FechaFin = new DateTime(2023,03,30,8,30,0)},
             new Cita {FechaInicio = new DateTime(2023,03,30,9,0,0), FechaFin = new DateTime(2023,03,30,9,30,0)},
         };
+        
+        var rcMock = new Mock<ReservaContext>(new DbContextOptions<ReservaContext>());
+        rcMock.Setup(o => o.Citas).ReturnsDbSet(citas);
 
         var nuevaCita = new Cita {
             FechaInicio = new DateTime(2023, 03, 30, 8, 30, 0), 
             FechaFin = new DateTime(2023, 03, 30, 09, 10, 0)
         };
         
-        var result = validator.VerificaSiLaCitaEsValidaEnFechas(citas, nuevaCita);
+        var result = validator.VerificaSiLaCitaEsValidaEnFechas(rcMock.Object, nuevaCita);
         
         Assert.IsFalse(result);
     }

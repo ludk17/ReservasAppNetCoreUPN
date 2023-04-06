@@ -5,10 +5,14 @@ namespace ReservasApp;
 
 public class ReservaContext: DbContext
 {
-    
-    public DbSet<Cita> Citas { get; set; }
+    public virtual DbSet<Cita> Citas { get; set; }
     public DbSet<Recurso> Recursos { get; set; }
     public DbSet<Empleado> Empleados { get; set; }
+
+    public virtual int ReturnUno()
+    {
+        return 1;
+    }
 
     public ReservaContext(DbContextOptions<ReservaContext> options): base(options) {}
 

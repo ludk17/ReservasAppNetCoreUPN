@@ -16,10 +16,9 @@ public class CitaController: Controller
     public ActionResult Create(Cita cita)
     {
         var validator = new CitaValidator();
-        var citas = _context.Citas.ToList();
         if(!validator.VerificarQueFechaFinSeaMayorAFechaInicio(cita))
             ModelState.AddModelError("FechaFin", "Fecha Fin debe ser mayor a Fecha inico");
-        if(!validator.VerificaSiLaCitaEsValidaEnFechas(citas, cita))
+        if(!validator.VerificaSiLaCitaEsValidaEnFechas(_context, cita))
             ModelState.AddModelError("FechaFin", "Ya hay una cita Programada");
 
         if (!ModelState.IsValid)
@@ -27,6 +26,8 @@ public class CitaController: Controller
 
         
         // guardamos
+        _context.Citas.Add(cita);
+        _context.SaveChanges();
         return Ok();
     }
 }
