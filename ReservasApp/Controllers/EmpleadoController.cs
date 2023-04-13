@@ -5,10 +5,14 @@ namespace ReservasApp.Controllers;
 
 public class EmpleadoController : Controller
 {
+    
+    
+    
     // GET
     [HttpPost]
     public IActionResult Create(Empleado empleado)
     {
+        
         // guardar
         return View();
     }
