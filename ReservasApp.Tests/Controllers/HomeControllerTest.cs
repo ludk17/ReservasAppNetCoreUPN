@@ -57,4 +57,10 @@ public class HomeControllerTest
             controller.ValidException(true)
         });
     }
+    
+    [Test]
+    public void ValidExceptionCase03()
+    {
+        Assert.IsTrue(true);
+    }
 }
