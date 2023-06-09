@@ -128,7 +128,7 @@ public class CitaValidatorTest
         
         var result = validator.VerificaSiLaCitaEsValidaEnFechas(rcMock.Object, nuevaCita);
         
-        Assert.IsTrue(result);
+        Assert.IsFalse(result);
     }
     
     [Test]

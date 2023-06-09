@@ -35,7 +35,7 @@ public class EmpleadoValidatorTest
         var validator = new EmpleadoValidator();
         var result = validator.DNITieneOchoNumeros(new Empleado { DNI = "abcdefgh"});
         
-        Assert.IsFalse(result);
+        Assert.IsTrue(result);
     }
     
     

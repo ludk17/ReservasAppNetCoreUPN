@@ -3,6 +3,21 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Login Page</h1>
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-danger">@TempData["message"]</div>
+    }
+    <form action="/home" method="post">
+        <div class="form-control">
+            <label for="">Username</label>
+            <input type="text" id="username" name="username" value="">
+        </div>
+        <div class="form-control">
+            <label for="">Password</label>
+            <input type="password" id="password" name="password" value="">
+        </div>
+        
+        <button>Login</button>
+    </form>
 </div>
