@@ -54,7 +54,7 @@ public class HomeControllerTest
         var controller = new HomeController();
         Assert.Catch<Exception>(() =>
         {
-            controller.ValidException(true);
+            controller.ValidException(true)
         });
     }
 }
