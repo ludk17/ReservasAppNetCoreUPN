@@ -15,10 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/sdk
     steps:
+    - uses: actions/checkout@v3
     - name: Restore dependencies
-      run: dotnet restore  ReservasApp.sln
+      run: dotnet restore 
     - name: Build
-      run: dotnet build  ReservasApp.sln  --no-restore
+      run: dotnet build  --no-restore
     - name: Test
-      run: dotnet test  ReservasApp.sln  --no-build --verbosity normal  
+      run: dotnet test  --no-build --verbosity normal  
 
