@@ -16,9 +16,9 @@ jobs:
     container: mcr.microsoft.com/dotnet/sdk
     steps:
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore  ReservasApp.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build  ReservasApp.sln  --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal  
+      run: dotnet test  ReservasApp.sln  --no-build --verbosity normal  
 
