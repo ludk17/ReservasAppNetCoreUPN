@@ -7,6 +7,7 @@ namespace ReservasApp.Controllers;
 public class CitaController: Controller
 {
     private readonly ReservaContext _context;
+    private String PASSWORD = "1236493"; 
     public CitaController(ReservaContext context)
     {
         _context = context;
